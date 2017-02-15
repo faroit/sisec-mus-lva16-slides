@@ -8,19 +8,25 @@
 \mode<presentation>
 {
   \usetheme{default}      % or try Darmstadt, Madrid, Warsaw, ...
-  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usecolortheme{crane} % or try albatross, beaver, crane, ...
   \usefonttheme{default}  % or try serif, structurebold, ...
   \setbeamertemplate{navigation symbols}{}
   \setbeamertemplate{caption}[numbered]
 } 
 
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
 
-\title[Your Short Title]{Your Presentation}
-\author{You}
-\institute{Where You're From}
-\date{Date of Presentation}
+\title[SISEC 2.0]{Signal Separation Evaluation Challenge\\2016 campaign and questions about the future}
+\author{Antoine Liutkus, INRIA\\ Fabian Stoeter, AudioLabs}
+\date{22.2.2017}
 
 \begin{document}
 
@@ -35,60 +41,368 @@
 
 \section{Introduction}
 
-\begin{frame}{Introduction}
+\begin{frame}{Before SiSEC}
+
+There existed single task evaluation campaigns with, related to speech
+signal:
 
 \begin{itemize}
-  \item Your introduction goes here!
-  \item Use \texttt{itemize} to organize your main points.
+
+\item
+  PASCAL Speech Separation Challenge I
+\item
+  PASCAL Speech Separation Challenge II
+\item
+  Lucas Parra's evaluation
+\item
+  Stereo Audio Source Separation Evaluation Campaign
+\item
+  MLSP'05 Data Analysis Competition
+\item
+  MLSP'06 Data Analysis Competition
+\item
+  MLSP'07 Data Analysis Competition
 \end{itemize}
-
-\vskip 1cm
-
-\begin{block}{Examples}
-Some examples of commonly used commands and features are included, to help you get started.
-\end{block}
 
 \end{frame}
 
-\section{Some \LaTeX{} Examples}
+\begin{frame}{SiSECs}
 
-\subsection{Tables and Figures}
-
-\begin{frame}{Tables and Figures}
+SiSEC combined various tasks and presents the evaluation results within
+the LVA/ICA. Each task is supervised by individual maintainer.
 
 \begin{itemize}
-\item Use \texttt{tabular} for basic tables --- see Table~\ref{tab:widgets}, for example.
-\item You can upload a figure (JPEG, PNG or PDF) using the files menu. 
-\item To include it in your document, use the \texttt{includegraphics} command (see the comment below in the source code).
+
+\item
+  SiSEC2008
+\item
+  SiSEC2010
+\item
+  SiSEC2011
+\item
+  SiSEC2013
+\item
+  SiSEC2015
 \end{itemize}
 
-% Commands to include a figure:
-%\begin{figure}
-%\includegraphics[width=\textwidth]{your-figure's-file-name}
-%\caption{\label{fig:your-figure}Caption goes here.}
-%\end{figure}
+\end{frame}
 
-\begin{table}
-\centering
-\begin{tabular}{l|r}
-Item & Quantity \\\hline
-Widgets & 42 \\
-Gadgets & 13
-\end{tabular}
-\caption{\label{tab:widgets}An example table.}
-\end{table}
+\begin{frame}{SiSEC 2016}
+
+\begin{itemize}
+
+\item
+  Underdetermined speech and music mixtures
+\item
+  Two-channel mixtures of speech and real-world background noise
+\item
+  Professionally produced music recordings
+\item
+  Asynchronous recordings of speech mixtures
+\item
+  Separation of biomedical signals
+\end{itemize}
 
 \end{frame}
 
-\subsection{Mathematics}
+\begin{frame}{Statistics}
 
-\begin{frame}{Readable Mathematics}
+\begin{itemize}
 
-Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
-$$S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
-      = \frac{1}{n}\sum_{i}^{n} X_i$$
-denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
+\item
+  Number of submissions
+\item
+  Number of new submission
+\end{itemize}
 
 \end{frame}
+
+\begin{frame}{SiSEC Impact}
+\includegraphics[width=\textwidth]{fig/SiSEC_impact-eps-converted-to.pdf}
+\end{frame}
+
+\begin{frame}{SiSEC Publications}
+\includegraphics[width=\textwidth]{fig/SiSEC_pub-eps-converted-to.pdf}
+\end{frame}
+
+
+\begin{frame}{UND: Underdetermined-speech and music mixtures}
+\includegraphics[width=\textwidth]{fig/UND.png}
+\end{frame}
+
+\begin{frame}{BGN: Two-channel mixtures of speech and real-world background noise}
+\includegraphics[width=\textwidth]{fig/BGN1.png}
+\end{frame}
+
+\begin{frame}{BGN: Two-channel mixtures of speech and real-world background noise}
+\includegraphics[width=0.7\textwidth]{fig/BGN2.png}
+\end{frame}
+
+\begin{frame}{BIO: Separation of biomedical signals}
+\includegraphics[width=\textwidth]{fig/BIO-PCG.pdf}
+\end{frame}
+
+\begin{frame}{BIO: Separation of biomedical signals}
+\includegraphics[width=\textwidth]{fig/BIO-results.pdf}
+\end{frame}
+
+\begin{frame}{MUS: Vocals SDR}
+\includegraphics[width=\textwidth]{fig/MUS_SDR.pdf}
+\end{frame}
+
+\begin{frame}{MUS: Vocals SDR}
+\includegraphics[width=\textwidth]{fig/wilcox_voc_sdr_slide.pdf}
+\end{frame}
+
+\begin{frame}{MUS: Vocals SDR}
+\includegraphics[width=\textwidth]{fig/wilcox_voc_sdr_slide_marked.pdf}
+\end{frame}
+
+\begin{frame}{The 2016 MUS website}
+\begin{center}
+demo
+\end{center}
+\end{frame}
+
+\begin{frame}{Problems in SiSEC}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Participation (except MUS).
+\item
+  Just data, no scripts (except MUS).
+\item
+  Visibility\\
+  \textcolor{gray}{Once every 1.5 year is not enough\\LVA=Machine Learning scientists. Bridging the communities ?}
+\item
+  Only summary statistics, not actual separation results.
+\item
+  No baseline methods for simple comparison, sanity check.\\
+  \textcolor{gray}{Provide minimum working examples?}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\textbf{How do others deal with these problems?}
+\end{frame}
+
+\begin{frame}{Industry: Kaggle}
+
+\begin{itemize}
+\item Platform for competitions on which
+companies and researchers post their data and participants submit their results online. 
+
+\item 3.500 competition submissions per day. 
+\item Best submissions receive \$ (up to \$1M). 
+\item Also used for academic challenges; e.g.:
+\href{https://www.kaggle.com/c/mlsp-2013-birds}{MLSP 2013 Bird
+Classification Challenge}
+\end{itemize}
+
+\begin{itemize}
+\item \textcolor{gray}{Hosting only if organisers provide prizes in cash}
+\item \textcolor{gray}{Evaluation limited to few metrics (mostly classification)}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Academia: From MIREX to Open-MIC}
+
+\begin{itemize}
+\item MIR-Community is running a similar competition (MIREX) since 2005. 
+\item \href{https://github.com/cosmir/open-mic}{B. McFee, E. J. Humphrey, and
+J. Urbano. A Plan for Sustainable MIR Evaluation}:
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Problems in MIREX}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  the financial and labor costs cannot be sustained indefinitely,
+\item
+  the lack of data transparency limits the scientific value of the
+  endeavour,
+\item
+  the lack of a strategy for obtaining and annotating new data
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Their Proposal (Open-MIC)}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+
+\item
+  Distributed computation reduces operating costs to scale favorably
+  with increased participation.
+\item
+  Freely distributable audio facilitates reproducibility and benefits
+  the entire community.
+\item
+  Incremental evaluation reduces bias by keeping test data fresh, and
+  provides a feasible strategy for collecting new data
+\end{enumerate}
+
+\end{frame}
+
+% \begin{frame}{What is it Open-MIC?}
+
+% is an open-source server system that provides the
+% following infrastructure:
+
+% \begin{itemize}
+
+% \item
+%   Uploader: A collection of audio files, with potentially varying signal
+%   parameters, are uploaded into the CAS.
+% \item
+%   Task Builder: Having creating a normalized, uniquely identified
+%   collection, a number of annotation ``tasks'' are created.
+% \item
+%   Annotation: Tasks are served to a web-based annotation tool guided by
+%   some backend logic, where users select and submit annotations.
+% \item
+%   Dataset Compiler: Based on the the state of the task collection, a
+%   labeled ``training'' set (audio and annotation) and unlabeled ``test''
+%   (audio only) set are exported from the CAS.
+% \end{itemize}
+
+% \begin{block}{}
+% Open-MIC is ready in June and will be evaluated for one single task of
+% instrument identification for next MIREX.
+% \end{block}
+
+% \end{frame}
+
+\begin{frame}{Addressing the issues of SiSEC}
+
+Differences to MiRex
+
+\begin{itemize}
+	\item Signal processing problem instead of labeling problem
+	\item SiSEC targets other applications (e.g. BIO).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{1. Participation}
+
+\begin{itemize}
+\item
+SiSEC has to keep up with the scientific interests of the community\\
+\textcolor{gray}{ICA became LVA in 2010. What about LVA Challenge ?\\
+It should be easy to submit new tasks/data all the time.\\Can you provide data?} 
+\item
+Cosmetic improvements: website (see SiSEC MUS 2017).\\
+\textcolor{gray}{Are there other ways to communicate you feel are appropriate}
+\item Advertise to the machine (deep) learning community ?\\
+\textcolor{gray}{easily get the data as MNIST digits ? }
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{2. Data and software}
+
+\begin{itemize}
+\item SiSEC data publicly available, but hard to host (MUS=14 Gb)\\
+\textcolor{gray}{sustainable solution: help through torrent seeding or \$\$\$ ?}
+\item easy to use subsets / toy data (equivalent to MNIST)\\
+\textcolor{gray}{Legacy tasks ? subtasks ?}
+\item Python DSDTOOLS for MUS. \\ \textcolor{gray}{extend it to other tasks ?}
+\\ \textcolor{gray}{use github for all software tools (github.com/lva)?}
+\end{itemize}
+\end{frame}
+
+% \begin{frame}{Next steps}
+
+% \begin{itemize}
+%   \item
+%     Make \texttt{dsdtools} even easier to use with Deep Learning
+%     libraries, so that feature extractors can be used to build Test and
+%     Train Tensors
+%       \item
+%     We would propose \texttt{lvatools} which provide a unique
+%     interface to all tasks. Easy way to download datasets, parse the
+%     data. etc.
+% \end{itemize}
+% \end{frame}
+
+\begin{frame}{Visibility (1/3)}
+\includegraphics[width=\textwidth]{fig/source_separation.png}
+\end{frame}
+
+\begin{frame}{Visibility (2/3)}
+\includegraphics[width=\textwidth]{fig/deep_learning.png}
+\end{frame}
+
+\begin{frame}{Visibility (3/3)}
+\begin{itemize}
+
+\item Source separation is a difficult field to get into\\
+\textcolor{gray}{But audio is seen as a great application !\\$\Rightarrow$ Provide toy data and minimum working examples.\\Can you provide baseline methods?}
+\item The challenge should match the researchers' interest\\
+\textcolor{gray}{Making it easy to propose a new task/data? How?}
+\item Better exploit participation\\
+\textcolor{gray}{Interactive web-report (see demo)\\
+Sharing item-wise results and scores\\
+Automatic results analysis: }\textcolor{red}{facilitating evaluation sections!}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{3. Automated evaluation}
+\begin{enumerate}
+\item Participants process test data themselves\\
+\textcolor{gray}{lvatools should facilitate getting data and computing results\\software will be opensource (dsdtools is already)}
+\item We compute the metrics\\
+\textcolor{gray}{Automatic comparison with state of the art\\Figures generation\\Become state of the art!}
+\item You can propose a metric (bsseval-like)\\
+\textcolor{gray}{Compute on past evaluation results. }\\
+\textcolor{red}{Interested in perceptual evaluation? Let's talk!}
+\end{enumerate}
+
+\vspace{0.5cm}What do you think of these? Do you have some experience?
+\end{frame}
+
+\begin{frame}{Sustainability and money!}
+
+
+  \begin{itemize}
+
+\item We want to host a lva server\\
+\textcolor{gray}{thirdparty storage (i.e amazon) ?\\cloud computations?\\proprietary solutions?}\\
+\item How can \textcolor{red}{you} contribute ?\\
+\textcolor{gray}{Sponsor money ? National/international scientific projects?\\Provide sandboxes and computing power?}
+
+\end{itemize}
+
+
+\end{frame}
+
+% \begin{frame}{5. Baseline methods are not easily accessible for simple
+% comparison, sanity check.}
+
+% To address this, we would propose to release open source baseline
+% methods, under the SISEC organisation. These methods could be outdated
+% but should be easy to use and run quickly.
+
+% \begin{itemize}
+
+% \item
+%   Questions:
+
+%   \begin{itemize}
+
+%   \item
+%     Can you provide baseline methods?
+%   \end{itemize}
+% \end{itemize}
+
+% \end{frame}
 
 \end{document}
