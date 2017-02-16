@@ -7,8 +7,8 @@
 %
 \mode<presentation>
 {
-  \usetheme{default}      % or try Darmstadt, Madrid, Warsaw, ...
-  \usecolortheme{crane} % or try albatross, beaver, crane, ...
+  \usetheme{Singapore}      % or try Darmstadt, Madrid, Warsaw, ...
+%   \usecolortheme{crane} % or try albatross, beaver, crane, ...
   \usefonttheme{default}  % or try serif, structurebold, ...
   \setbeamertemplate{navigation symbols}{}
   \setbeamertemplate{caption}[numbered]
@@ -25,7 +25,7 @@
 \usepackage[utf8x]{inputenc}
 
 \title[SISEC 2.0]{Signal Separation Evaluation Challenge\\2016 campaign and questions about the future}
-\author{Antoine Liutkus, INRIA\\ Fabian Stoeter, AudioLabs}
+\author{Antoine Liutkus, Inria\\ Fabian Stoeter, AudioLabs}
 \date{22.2.2017}
 
 \begin{document}
@@ -34,10 +34,9 @@
   \titlepage
 \end{frame}
 
-% Uncomment these lines for an automatically generated outline.
-%\begin{frame}{Outline}
-%  \tableofcontents
-%\end{frame}
+\begin{frame}{Outline}
+ \tableofcontents
+\end{frame}
 
 \section{Introduction}
 
@@ -66,53 +65,32 @@ signal:
 
 \end{frame}
 
-\begin{frame}{SiSECs}
+\begin{frame}{The Signal Separation Evaluation Challenge}
 
-SiSEC combined various tasks and presents the evaluation results within
-the LVA/ICA. Each task is supervised by individual maintainer.
 
 \begin{itemize}
-
-\item
-  SiSEC2008
-\item
-  SiSEC2010
-\item
-  SiSEC2011
-\item
-  SiSEC2013
-\item
-  SiSEC2015
+\item Combine various tasks and report during LVA/ICA. 
+\item Roughly every 1.5 year: 2008, 2011, 2013, 2015
+\item Each task is supervised by individual maintainer.
+\item Targetted at all signal separation applications\\\textcolor{gray}{$\Rightarrow$ in practice mostly in audio}
 \end{itemize}
 
 \end{frame}
+
+\section{Results SiSEC 2016}
 
 \begin{frame}{SiSEC 2016}
 
 \begin{itemize}
 
-\item
-  Underdetermined speech and music mixtures
-\item
-  Two-channel mixtures of speech and real-world background noise
-\item
-  Professionally produced music recordings
-\item
-  Asynchronous recordings of speech mixtures
-\item
-  Separation of biomedical signals
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{Statistics}
-
-\begin{itemize}
-
-\item
-  Number of submissions
-\item
-  Number of new submission
+\item[UND]
+  Underdetermined speech and music mixtures\\ \textcolor{gray}{1 new participant 2016} 
+\item[BGN]
+  Stereo mixtures of speech and real-world background noise\\ \textcolor{gray}{3 new participants 2016} 
+\item[BIO]
+  Separation of biomedical signals \textcolor{red}{new task}\\ \textcolor{gray}{2 participants 2016} 
+\item[MUS]
+  Professionally produced music recordings \textcolor{red}{new dataset}\\ \textcolor{gray}{16 new systems evaluated 2016} 
 \end{itemize}
 
 \end{frame}
@@ -121,36 +99,44 @@ the LVA/ICA. Each task is supervised by individual maintainer.
 \includegraphics[width=\textwidth]{fig/SiSEC_impact-eps-converted-to.pdf}
 \end{frame}
 
-\begin{frame}{SiSEC Publications}
-\includegraphics[width=\textwidth]{fig/SiSEC_pub-eps-converted-to.pdf}
-\end{frame}
-
-
-\begin{frame}{UND: Underdetermined-speech and music mixtures}
-\includegraphics[width=\textwidth]{fig/UND.png}
-\end{frame}
-
-\begin{frame}{BGN: Two-channel mixtures of speech and real-world background noise}
-\includegraphics[width=\textwidth]{fig/BGN1.png}
-\end{frame}
-
-\begin{frame}{BGN: Two-channel mixtures of speech and real-world background noise}
-\includegraphics[width=0.7\textwidth]{fig/BGN2.png}
+\begin{frame}{BGN: Stereo mixtures of speech and noise}
+\centering
+\includegraphics[width=0.6\textwidth]{fig/BGN-highlight.eps}
+\begin{itemize}
+\item Very different separation performance depending on metric. \\ \textcolor{gray}{$\Rightarrow$ Focus on speech quality ? Perceptual measurements\\$\Rightarrow$ Focus on application ? ASR performance: Chime challenge}
+\end{itemize}
 \end{frame}
 
 \begin{frame}{BIO: Separation of biomedical signals}
 \includegraphics[width=\textwidth]{fig/BIO-PCG.pdf}
+\begin{itemize}
+\item Extract heart signal from raw acoustic recordings
+\item Interferences from speech, cough, gastric noise, ...
+\end{itemize}
 \end{frame}
 
 \begin{frame}{BIO: Separation of biomedical signals}
 \includegraphics[width=\textwidth]{fig/BIO-results.pdf}
+\begin{itemize}
+\item Two methods based on empirical mode decompositions
+\item Small dataset, some interest\\\textcolor{gray}{Develop evaluation of biomedical signal separation ?}
+\end{itemize}
+
 \end{frame}
 
-\begin{frame}{MUS: Vocals SDR}
+\begin{frame}{MUS: Separation of music}
+\begin{itemize}
+\item 50 dev + 50 test \textcolor{red}{full-length, produced, stereo} tracks
+\item Separate bass, drums, vocals, other
+\item 23 methods evaluated + Ideal Binary Mask
+\begin{center}
+\vspace{0.5cm}vocals SDR
+\end{center}
+\end{itemize}
 \includegraphics[width=\textwidth]{fig/MUS_SDR.pdf}
 \end{frame}
 
-\begin{frame}{MUS: Vocals SDR}
+\begin{frame}{MUS: Pair-wise comparisons}
 \includegraphics[width=\textwidth]{fig/wilcox_voc_sdr_slide.pdf}
 \end{frame}
 
@@ -158,11 +144,16 @@ the LVA/ICA. Each task is supervised by individual maintainer.
 \includegraphics[width=\textwidth]{fig/wilcox_voc_sdr_slide_marked.pdf}
 \end{frame}
 
-\begin{frame}{The 2016 MUS website}
+\begin{frame}{DEMO: The 2016 MUS website}
 \begin{center}
-demo
+\includegraphics[width=\textwidth]{fig/mus-website.pdf}
+
+\url{http://www.sisec17.audiolabs-erlangen.de}
+
 \end{center}
 \end{frame}
+
+\section{Future of SiSEC}
 
 \begin{frame}{Problems in SiSEC}
 
@@ -212,43 +203,25 @@ Classification Challenge}
 
 \begin{itemize}
 \item MIR-Community is running a similar competition (MIREX) since 2005. 
-\item \href{https://github.com/cosmir/open-mic}{B. McFee, E. J. Humphrey, and
-J. Urbano. A Plan for Sustainable MIR Evaluation}:
+\item Their problems:
+\begin{itemize}
+  \item
+    high financial and labor costs (source code submissions)
+  \item
+    lack of data transparency
+  \item
+    lack of a strategy for obtaining and annotating new data
 \end{itemize}
-\end{frame}
-
-\begin{frame}{Problems in MIREX}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-
-\item
-  the financial and labor costs cannot be sustained indefinitely,
-\item
-  the lack of data transparency limits the scientific value of the
-  endeavour,
-\item
-  the lack of a strategy for obtaining and annotating new data
-\end{enumerate}
-
-\end{frame}
-
-\begin{frame}{Their Proposal (Open-MIC)}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-
-\item
-  Distributed computation reduces operating costs to scale favorably
-  with increased participation.
-\item
-  Freely distributable audio facilitates reproducibility and benefits
-  the entire community.
-\item
-  Incremental evaluation reduces bias by keeping test data fresh, and
-  provides a feasible strategy for collecting new data
-\end{enumerate}
-
+\item Proposal: Open-MIC\footnote{\href{https://github.com/cosmir/open-mic}{B. McFee, E. J. Humphrey, and J. Urbano. A Plan for Sustainable MIR Evaluation}}
+  \begin{itemize}
+  \item
+    Distributed computation to reduce operating costs
+  \item
+    Freely distributable audio facilitates reproducibility
+  \item
+    Incremental evaluation, automatically collecting new annotation data
+  \end{itemize}
+\end{itemize}
 \end{frame}
 
 % \begin{frame}{What is it Open-MIC?}
@@ -282,11 +255,12 @@ J. Urbano. A Plan for Sustainable MIR Evaluation}:
 
 \begin{frame}{Addressing the issues of SiSEC}
 
-Differences to MiRex
+Differences to MIREX/Open-MIC
 
 \begin{itemize}
 	\item Signal processing problem instead of labeling problem
-	\item SiSEC targets other applications (e.g. BIO).
+	\item SiSEC targets other applications, too (e.g. BIO).
+    \item SiSEC already has open data and does not depend on annotations
 \end{itemize}
 \end{frame}
 
